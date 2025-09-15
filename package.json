@@ -1,0 +1,60 @@
+{
+  "name": "typescript-cli-template",
+  "version": "1.0.0",
+  "description": "A template for TypeScript CLI applications",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "cli-app": "./bin/cli-app"
+  },
+  "keywords": ["cli", "typescript", "template", "commander"],
+  "author": "Devonte Emokpae",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsx src/index.ts",
+    "start": "node bin/cli-app",
+    "build": "tsup src/index.ts --format cjs,esm --dts --tsconfig tsconfig.build.json",
+    "build:no-dts": "tsup src/*.ts --format cjs,esm --no-dts --tsconfig tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "format": "pnpm lint:oxlint; pnpm lint:biome",
+    "lint:biome": "biome check --unsafe --write .",
+    "lint:eslint": "eslint --quiet --cache --fix .",
+    "lint": "pnpm lint:oxlint; pnpm lint:biome; pnpm lint:eslint",
+    "lint:oxlint": "oxlint -c oxlintrc.json --fix --import-plugin --vitest-plugin --jest-plugin --jsx-a11y-plugin --nextjs-plugin --react-perf-plugin --node-plugin --promise-plugin --ignore-path .oxlintignore -A label-has-associated-control",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "@mobily/ts-belt": "4.0.0-rc.5",
+    "already": "3.4.1",
+    "commander": "14.0.1",
+    "dotenv": "17.2.2",
+    "parse-json": "8.3.0",
+    "safe-stable-stringify": "2.5.0",
+    "ts-pattern": "5.8.0",
+    "zod": "4.1.8",
+    "zx": "8.8.1"
+  },
+  "devDependencies": {
+    "@total-typescript/ts-reset": "0.6.1",
+    "@types/node": "24.4.0",
+    "eslint": "9.35.0",
+    "eslint-config-extreme": "2.0.2",
+    "ts-node": "10.9.2",
+    "ts-patch": "3.3.0",
+    "tsconfig-paths": "4.2.0",
+    "tsup": "8.5.0",
+    "tsx": "4.20.5",
+    "typescript": "5.9.2",
+    "vitest": "3.2.4"
+  },
+  "packageManager": "pnpm@10.16.1",
+  "engines": {
+    "node": "22.x"
+  },
+  "volta": {
+    "node": "22.19.0"
+  }
+}

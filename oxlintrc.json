@@ -1,0 +1,27 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "plugins": [
+    "jest",
+    "import",
+    "promise",
+    "vitest",
+    "jsx-a11y",
+    "next",
+    "react-perf",
+    "react-hooks",
+    "react",
+    "unicorn",
+    "node",
+    "oxc",
+    "typescript"
+  ],
+  "rules": {
+    "no-unused-vars": "off",
+    "jest/no-export": "off",
+    "vitest/no-export": "off"
+  }
+}
